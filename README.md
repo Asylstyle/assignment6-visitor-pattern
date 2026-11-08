@@ -117,10 +117,11 @@ element types. The extra adapter keeps traversal in one owner.
 
 ## Verification
 
-`mvn test` runs six JUnit 5 test classes:
+`mvn test` runs seven JUnit 5 test classes:
 
 | Test class | Coverage |
 | --- | --- |
+| `DemoTest` | Exact default output, changed search options and invalid arguments |
 | `VisitorDispatchTest` | Correct overloads and single-node `accept` behavior |
 | `TotalSizeVisitorTest` | Nested totals, zero-byte nodes and overflow |
 | `SearchVisitorTest` | Both filters, inclusive boundary, ordering, relative paths and snapshots |
