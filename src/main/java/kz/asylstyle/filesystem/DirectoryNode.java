@@ -16,7 +16,26 @@ public final class DirectoryNode extends FileSystemNode {
         if (children.stream().anyMatch(existing -> existing.name().equals(child.name()))) {
             throw new IllegalArgumentException("Duplicate child name: " + child.name());
         }
+        if (child.parent().isPresent()) {
+            throw new IllegalArgumentException("Child already belongs to a directory");
+        }
+        for (FileSystemNode ancestor = this; ancestor != null;
+                ancestor = ancestor.parent().orElse(null)) {
+            if (ancestor == child) {
+                throw new IllegalArgumentException("A directory cannot contain itself or an ancestor");
+            }
+        }
         children.add(child);
+        child.attachTo(this);
+    }
+
+    public boolean remove(FileSystemNode child) {
+        Objects.requireNonNull(child, "Child is required");
+        if (!children.remove(child)) {
+            return false;
+        }
+        child.attachTo(null);
+        return true;
     }
 
     public List<FileSystemNode> children() {
