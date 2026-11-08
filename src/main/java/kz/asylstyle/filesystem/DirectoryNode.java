@@ -12,7 +12,11 @@ public final class DirectoryNode extends FileSystemNode {
     }
 
     public void add(FileSystemNode child) {
-        children.add(Objects.requireNonNull(child, "Child is required"));
+        Objects.requireNonNull(child, "Child is required");
+        if (children.stream().anyMatch(existing -> existing.name().equals(child.name()))) {
+            throw new IllegalArgumentException("Duplicate child name: " + child.name());
+        }
+        children.add(child);
     }
 
     public List<FileSystemNode> children() {
