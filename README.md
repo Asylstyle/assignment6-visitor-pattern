@@ -130,3 +130,14 @@ element types. The extra adapter keeps traversal in one owner.
 | `StatisticsVisitorTest` | Counts, directory roots, depth, empty nodes and reuse |
 
 Repository: https://github.com/Asylstyle/assignment6-visitor-pattern
+
+
+## Report and UML
+
+- [PDF report](docs/report.pdf): two report pages and a separate UML appendix.
+- [UML diagram](docs/uml.svg) and [editable Mermaid source](docs/uml.mmd).
+
+Latest local verification: 45 tests passed, 0 failures, 0 errors, 0 skipped.
+`mvn -B clean verify` ran on JDK 25.0.2 and Maven 3.10.0 with Java release 17;
+the compiled classes use major version 61. Default and `.pdf 1000` JAR runs passed.
+The configured GitHub Actions runs are separate from these local results.

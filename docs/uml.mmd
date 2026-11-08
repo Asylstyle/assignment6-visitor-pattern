@@ -1,0 +1,67 @@
+classDiagram
+    class Element {
+        <<interface>>
+        +name() String
+        +accept(Visitor visitor) void
+    }
+    class FileSystemNode {
+        <<abstract>>
+        -String name
+        -DirectoryNode parent
+        +parent() Optional~DirectoryNode~
+    }
+    class FileNode {
+        -long size
+        +size() long
+        +accept(Visitor visitor) void
+    }
+    class DirectoryNode {
+        -List~FileSystemNode~ children
+        +add(FileSystemNode child) void
+        +remove(FileSystemNode child) boolean
+        +children() List~FileSystemNode~
+        +accept(Visitor visitor) void
+    }
+    class Visitor {
+        <<interface>>
+        +begin() void
+        +enter(VisitContext context) void
+        +visit(FileNode file) void
+        +visit(DirectoryNode directory) void
+    }
+    class FileSystemWalker {
+        +walk(Element root, Visitor visitor) void
+    }
+    class TotalSizeVisitor {
+        +totalSize() long
+    }
+    class SearchVisitor {
+        -Predicate~String~ filenameCriterion
+        -long minimumSize
+        +matches() List~String~
+    }
+    class StatisticsVisitor {
+        +statistics() Statistics
+    }
+    class VisitContext {
+        <<record>>
+        +String relativePath
+        +int depth
+    }
+    class Statistics {
+        <<record>>
+        +long fileCount
+        +long directoryCount
+        +int maximumDepth
+    }
+    Element <|.. FileSystemNode
+    FileSystemNode <|-- FileNode
+    FileSystemNode <|-- DirectoryNode
+    DirectoryNode "0..1" *-- "0..*" FileSystemNode : children
+    Visitor <|.. TotalSizeVisitor
+    Visitor <|.. SearchVisitor
+    Visitor <|.. StatisticsVisitor
+    FileSystemWalker ..> Element
+    FileSystemWalker ..> Visitor : Dispatch adapter
+    FileSystemWalker ..> VisitContext
+    StatisticsVisitor ..> Statistics

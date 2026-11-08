@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="841.8897637795277" height="595.2755905511812" viewBox="0 0 841.8897637795277 595.2755905511812">
+<rect width="100%" height="100%" fill="white"/>
+<rect x="40" y="128.27559055118115" width="185" height="85" fill="white" stroke="#506274"/>
+<rect x="40" y="128.27559055118115" width="185" height="35" fill="#eef4f6" stroke="#506274"/>
+<text x="132.5" y="151.27559055118115" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="10">Element</text>
+<text x="132.5" y="138.27559055118115" text-anchor="middle" font-family="Arial" font-size="7">&lt;&lt;interface&gt;&gt;</text>
+<text x="48" y="177.27559055118115" font-family="Arial" font-size="8.2">+ name(): String</text>
+<text x="48" y="190.27559055118115" font-family="Arial" font-size="8.2">+ accept(visitor: Visitor): void</text>
+<rect x="40" y="260.27559055118115" width="185" height="115" fill="white" stroke="#506274"/>
+<rect x="40" y="260.27559055118115" width="185" height="35" fill="#eef4f6" stroke="#506274"/>
+<text x="132.5" y="283.27559055118115" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="10">FileSystemNode</text>
+<text x="132.5" y="270.27559055118115" text-anchor="middle" font-family="Arial" font-size="7">&lt;&lt;abstract&gt;&gt;</text>
+<text x="48" y="309.27559055118115" font-family="Arial" font-size="8.2">- name: String</text>
+<text x="48" y="322.27559055118115" font-family="Arial" font-size="8.2">- parent: DirectoryNode</text>
+<text x="48" y="335.27559055118115" font-family="Arial" font-size="8.2">+ name(): String</text>
+<text x="48" y="348.27559055118115" font-family="Arial" font-size="8.2">+ parent(): Optional&lt;DirectoryNode&gt;</text>
+<rect x="285" y="128.27559055118115" width="220" height="80" fill="white" stroke="#506274"/>
+<rect x="285" y="128.27559055118115" width="220" height="35" fill="#eef4f6" stroke="#506274"/>
+<text x="395.0" y="151.27559055118115" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="10">FileNode</text>
+<text x="293" y="177.27559055118115" font-family="Arial" font-size="8.2">- size: long</text>
+<text x="293" y="190.27559055118115" font-family="Arial" font-size="8.2">+ size(): long</text>
+<text x="293" y="203.27559055118115" font-family="Arial" font-size="8.2">+ accept(visitor: Visitor): void</text>
+<rect x="285" y="273.27559055118115" width="220" height="132" fill="white" stroke="#506274"/>
+<rect x="285" y="273.27559055118115" width="220" height="35" fill="#eef4f6" stroke="#506274"/>
+<text x="395.0" y="296.27559055118115" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="10">DirectoryNode</text>
+<text x="293" y="322.27559055118115" font-family="Arial" font-size="8.2">- children: List&lt;FileSystemNode&gt;</text>
+<text x="293" y="335.27559055118115" font-family="Arial" font-size="8.2">+ add(child: FileSystemNode): void</text>
+<text x="293" y="348.27559055118115" font-family="Arial" font-size="8.2">+ remove(child: FileSystemNode): boolean</text>
+<text x="293" y="361.27559055118115" font-family="Arial" font-size="8.2">+ children(): List&lt;FileSystemNode&gt;</text>
+<text x="293" y="374.27559055118115" font-family="Arial" font-size="8.2">+ accept(visitor: Visitor): void</text>
+<rect x="40" y="429.27559055118115" width="185" height="108" fill="white" stroke="#506274"/>
+<rect x="40" y="429.27559055118115" width="185" height="35" fill="#eef4f6" stroke="#506274"/>
+<text x="132.5" y="452.27559055118115" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="10">FileSystemWalker</text>
+<text x="48" y="478.27559055118115" font-family="Arial" font-size="8.2">+ walk(root, visitor): void</text>
+<text x="48" y="491.27559055118115" font-family="Arial" font-size="8.2">- PendingVisit(element, context)</text>
+<text x="48" y="504.27559055118115" font-family="Arial" font-size="8.2">- Dispatch implements Visitor</text>
+<text x="48" y="517.2755905511812" font-family="Arial" font-size="8.2">Traversal owner; explicit stack</text>
+<rect x="590" y="128.27559055118115" width="212" height="110" fill="white" stroke="#506274"/>
+<rect x="590" y="128.27559055118115" width="212" height="35" fill="#eef4f6" stroke="#506274"/>
+<text x="696.0" y="151.27559055118115" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="10">Visitor</text>
+<text x="696.0" y="138.27559055118115" text-anchor="middle" font-family="Arial" font-size="7">&lt;&lt;interface&gt;&gt;</text>
+<text x="598" y="177.27559055118115" font-family="Arial" font-size="8.2">+ begin(): void</text>
+<text x="598" y="190.27559055118115" font-family="Arial" font-size="8.2">+ enter(context): void</text>
+<text x="598" y="203.27559055118115" font-family="Arial" font-size="8.2">+ visit(file: FileNode): void</text>
+<text x="598" y="216.27559055118115" font-family="Arial" font-size="8.2">+ visit(directory: DirectoryNode): void</text>
+<rect x="590" y="261.27559055118115" width="212" height="74" fill="white" stroke="#506274"/>
+<rect x="590" y="261.27559055118115" width="212" height="35" fill="#eef4f6" stroke="#506274"/>
+<text x="696.0" y="284.27559055118115" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="10">TotalSizeVisitor</text>
+<text x="598" y="310.27559055118115" font-family="Arial" font-size="8.2">- totalSize: long</text>
+<text x="598" y="323.27559055118115" font-family="Arial" font-size="8.2">+ totalSize(): long</text>
+<rect x="590" y="354.27559055118115" width="212" height="84" fill="white" stroke="#506274"/>
+<rect x="590" y="354.27559055118115" width="212" height="35" fill="#eef4f6" stroke="#506274"/>
+<text x="696.0" y="377.27559055118115" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="10">SearchVisitor</text>
+<text x="598" y="403.27559055118115" font-family="Arial" font-size="8.2">- filenameCriterion: Predicate&lt;String&gt;</text>
+<text x="598" y="416.27559055118115" font-family="Arial" font-size="8.2">- minimumSize: long</text>
+<text x="598" y="429.27559055118115" font-family="Arial" font-size="8.2">+ matches(): List&lt;String&gt;</text>
+<rect x="590" y="457.27559055118115" width="212" height="80" fill="white" stroke="#506274"/>
+<rect x="590" y="457.27559055118115" width="212" height="35" fill="#eef4f6" stroke="#506274"/>
+<text x="696.0" y="480.27559055118115" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="10">StatisticsVisitor</text>
+<text x="598" y="506.27559055118115" font-family="Arial" font-size="8.2">- fileCount, directoryCount: long</text>
+<text x="598" y="519.2755905511812" font-family="Arial" font-size="8.2">- maximumDepth: int</text>
+<text x="598" y="532.2755905511812" font-family="Arial" font-size="8.2">+ statistics(): Statistics</text>
+<polyline points="132,260.27559055118115 132,213.27559055118115" fill="none" stroke="#506274" stroke-dasharray="4 3"/>
+<polyline points="136.0,221.27559055118115 132,213.27559055118115 128.0,221.27559055118115" fill="white" stroke="#506274"/>
+<polyline points="285,168.27559055118115 250,168.27559055118115 250,295.27559055118115 225,295.27559055118115" fill="none" stroke="#506274"/>
+<polyline points="233.0,291.27559055118115 225,295.27559055118115 233.0,299.27559055118115" fill="white" stroke="#506274"/>
+<polyline points="285,318.27559055118115 225,318.27559055118115" fill="none" stroke="#506274"/>
+<polyline points="233.0,314.27559055118115 225,318.27559055118115 233.0,322.27559055118115" fill="white" stroke="#506274"/>
+<polyline points="40,483.27559055118115 22,483.27559055118115 22,173.27559055118115 40,173.27559055118115" fill="none" stroke="#506274" stroke-dasharray="4 3"/>
+<polyline points="32.0,177.27559055118115 40,173.27559055118115 32.0,169.27559055118115" fill="none" stroke="#506274"/>
+<polyline points="225,485.27559055118115 551,485.27559055118115 551,173.27559055118115 590,173.27559055118115" fill="none" stroke="#506274" stroke-dasharray="4 3"/>
+<polyline points="582.0,177.27559055118115 590,173.27559055118115 582.0,169.27559055118115" fill="none" stroke="#506274"/>
+<polyline points="505,356.27559055118115 529,356.27559055118115 529,389.27559055118115 250,389.27559055118115 250,355.27559055118115 225,355.27559055118115" fill="none" stroke="#506274"/>
+<polyline points="233.0,351.27559055118115 225,355.27559055118115 233.0,359.27559055118115" fill="none" stroke="#506274"/>
+<polyline points="802,298.27559055118115 819,298.27559055118115 819,184.27559055118115 802,184.27559055118115" fill="none" stroke="#506274" stroke-dasharray="4 3"/>
+<polyline points="810.0,180.27559055118115 802,184.27559055118115 810.0,188.27559055118115" fill="white" stroke="#506274"/>
+<polyline points="802,396.27559055118115 819,396.27559055118115 819,184.27559055118115 802,184.27559055118115" fill="none" stroke="#506274" stroke-dasharray="4 3"/>
+<polyline points="810.0,180.27559055118115 802,184.27559055118115 810.0,188.27559055118115" fill="white" stroke="#506274"/>
+<polyline points="802,497.27559055118115 819,497.27559055118115 819,184.27559055118115 802,184.27559055118115" fill="none" stroke="#506274" stroke-dasharray="4 3"/>
+<polyline points="810.0,180.27559055118115 802,184.27559055118115 810.0,188.27559055118115" fill="white" stroke="#506274"/>
+</svg>
